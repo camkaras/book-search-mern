@@ -14,5 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "cli": "^1.0.1",
+    "heroku": "^7.60.2"
   }
 }
