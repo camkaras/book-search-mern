@@ -10,7 +10,7 @@
     "build": "cd client && npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cameron Karasiuk",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
