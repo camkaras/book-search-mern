@@ -36,7 +36,6 @@ const SearchBooks = () => {
 		}
 
 		try {
-			// > call searchGoogleBooks method from utils/API.js and pass in the input value from the searchInput state variable
 			const response = await searchGoogleBooks(searchInput);
 
 			if (!response.ok) {
@@ -66,21 +65,18 @@ const SearchBooks = () => {
 		// > find the book in `searchedBooks` state by the matching id
 		const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
-		// > Get the JWT token from context
 		const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-		// > If the token is missing, the user is not logged in and we can't save the book
 		if (!token) {
 			return false;
 		}
 
 		try {
-			// > Call SAVE_BOOK mutation using our saveBook mutation function created when we passed our parsed GraphQL query to useMutation
 			const { data } = await saveBook({
 				variables: { bookData: { ...bookToSave } },
 			});
 
-			// > If book successfully saves to user's account, save book id to state variable
+			// > If book successfully saves to user's account, save book id to state
 			setSavedBookIds([...savedBookIds, bookToSave.bookId]);
 		} catch (err) {
 			console.error(err);
